@@ -63,7 +63,12 @@ uintptr_t SignatureScanner::scan(std::string pattern, int skips)
 			if (skipsUsed == 0) {
 				return i;
 			}
-			skips--;
+			if (skips > 0) {
+				skips--;
+			}
+			else {
+				return i;
+			}
 		}
 	}
 	return 0;
